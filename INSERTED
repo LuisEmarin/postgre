@@ -1,0 +1,78 @@
+INSERT INTO customer(
+	customer_id ,
+	customer_name ,
+	ticket_number ,
+	address ,
+	age 
+)VALUES(	
+	1,
+	'Alex',
+	1,
+	'555 W Ontario St Chicago, IL 60611',
+	26
+);
+
+INSERT INTO tickets(
+	show_time ,
+	ticket_number ,
+	room ,
+	rating ,
+	movie_name ,
+	show_date ,
+	price ,
+	theater_name 
+)VALUES(
+	00:34:02,
+	1,
+	11,
+	'R',
+	'ALEXIS IN THINKINGLAND',
+	11/01,2105,
+	12.99,
+	'VOLLEYWOOD CINEMA'
+);
+
+INSERT INTO movies(
+	rating,
+	movie_name,
+	movie_id,
+	show_time,
+	room,
+	show_date,
+	genre,
+	theater_name
+)VALUES(
+	'PG-13',
+	'ALEXIS IN THINKINGLAND',
+	10,
+	'00:34:02',
+	1,
+	11/01,2105,
+	'Sci-Fi',
+	'VOLLEYWOOD CINEMA'	
+);
+
+INSERT INTO movietheater(
+	theater_name,
+	address,
+	theater_id
+)VALUES(
+	'VOLLEYWOOD CINEMA',
+	'123 musket apple dr Chicago,il 30594',
+	01001
+);
+
+INSERT INTO concessions(
+	food_type,
+	dateTime,
+	food_name,
+	quantity_sold,
+	theater_name
+)VALUES(
+	'drink',
+	'2011-01-01 00:00:00'::TIMESTAMP,
+	'slushie',
+	70,
+	'VOLLEYWOOD CINEMA'
+);
+

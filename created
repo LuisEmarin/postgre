@@ -1,0 +1,49 @@
+CREATE TABLE customer(
+	customer_id SERIAL PRIMARY KEY,
+	customer_name VARCHAR(100),
+	ticket_number INTEGER,
+	address VARCHAR(150),
+	age INTEGER,
+	FOREIGN KEY(ticket_number) REFERENCES tickets(ticket_number)
+);
+
+CREATE TABLE tickets(
+	show_time time,
+	ticket_number INTEGER PRIMARY KEY,
+	room INTEGER,
+	rating VARCHAR(150),
+	movie_name VARCHAR(150) NOT NULL,
+	show_date DATE,
+	price INTEGER,
+	theater_name VARCHAR(150)NOT NULL,
+	FOREIGN KEY(movie_name) REFERENCES movies(movie_name),
+	FOREIGN KEY(theater_name) REFERENCES movietheater(theater_name)	
+);
+
+CREATE TABLE movies(
+	rating VARCHAR(150),
+	movie_name VARCHAR(150) PRIMARY KEY,
+	movie_id INTEGER,
+	show_time TIME,
+	room integer,
+	show_date DATE,
+	genre VARCHAR(150),
+	theater_name VARCHAR(150) NOT NULL,
+	FOREIGN KEY(theater_name) REFERENCES movietheater(theater_name)
+);
+
+CREATE TABLE movietheater(
+	theater_name VARCHAR(150) PRIMARY KEY,
+	address VARCHAR(150),
+	theater_id VARCHAR(150)
+);
+
+CREATE TABLE concessions(
+	food_type VARCHAR(150),
+	dateTime timestamp,
+	food_name VARCHAR(150),
+	food_id INTEGER,
+	quantity_sold INTEGER,
+	theater_name VARCHAR(150) NOT NULL,
+	FOREIGN KEY (theater_name) REFERENCES movietheater(theater_name)
+);
